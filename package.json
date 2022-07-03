@@ -1,0 +1,62 @@
+{
+  "name": "react-d-ui",
+  "version": "1.0.0-alpha0",
+  "description": "the component library of lcc",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo test",
+    "build": "yarn run clean && rollup -c",
+    "clean": "rimraf ./dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "ui",
+    "react",
+    "antd"
+  ],
+  "author": "lcc",
+  "license": "ISC",
+  "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "classnames": "^2.3.1",
+    "react": "^17.0.2",
+    "react-dom": "17.0.2",
+    "react-is": "^18.0.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "design-06k4": "^2.17.10",
+    "less": "^4.1.3",
+    "react": "^17.0.2",
+    "react-dom": "17.0.2",
+    "react-is": "^18.0.0",
+    "react-transition-group": "^4.4.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.75.7",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^18.0.2",
+    "@vitejs/plugin-react": "^1.3.0",
+    "vite": "^2.9.13"
+  }
+}
