@@ -1,9 +1,9 @@
 // import VerifyCode from "../../lib/component/verifyCode";
-import { KInput } from "design-06k4";
 
-import { VerifyCode } from "@/../dist/lib";
-import "@/../dist/lib/index.css";
-
+// import { VerifyCode } from "@/../dist/";
+// import "@/../dist/index.css";
+import { VerifyCode } from "stars-lib";
+import "stars-lib/dist/index.css";
 
 function App() {
   return (
