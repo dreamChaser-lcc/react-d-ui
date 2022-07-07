@@ -1,4 +1,4 @@
-import { CSSProperties, FC, useEffect, useRef } from 'react';
+import React, { CSSProperties, FC, useEffect, useRef } from "react";
 
 interface IRectCodeProps {
   width: number;
@@ -79,7 +79,7 @@ const RectCode: FC<IRectCodeProps> = (props) => {
   };
   const draw = () => {
     if (!mainRef.current) return false;
-    const ctx = mainRef.current.getContext('2d') as CanvasRenderingContext2D;
+    const ctx = mainRef.current.getContext("2d") as CanvasRenderingContext2D;
     const codeArr: string[] = new Array(digit).fill(0).map(() => {
       return getRandomCode();
     });
@@ -93,7 +93,7 @@ const RectCode: FC<IRectCodeProps> = (props) => {
   };
   const reload = () => {
     if (!mainRef.current) return false;
-    const ctx = mainRef.current.getContext('2d') as CanvasRenderingContext2D;
+    const ctx = mainRef.current.getContext("2d") as CanvasRenderingContext2D;
     ctx.clearRect(0, 0, width, height);
     draw();
   };
@@ -101,8 +101,8 @@ const RectCode: FC<IRectCodeProps> = (props) => {
     draw();
   }, []);
   const wrapStyle: CSSProperties = {
-    border: '1px solid #000',
-    userSelect: 'none',
+    border: "1px solid #000",
+    userSelect: "none",
   };
 
   return (

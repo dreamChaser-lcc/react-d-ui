@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 // 方法
 import { getRandomToPosition, jigsawDraw, JigsawEnum } from "./utils/util";
 import { unstable_batchedUpdates } from "react-dom";
@@ -188,7 +188,7 @@ const SliderJigsaw: FC<ISliderProps> = (props) => {
   return (
     <div>
       <div
-        style={{ position: "relative", width}}
+        style={{ position: "relative", width }}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
       >
