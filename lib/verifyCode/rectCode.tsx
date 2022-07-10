@@ -21,6 +21,7 @@ const RectCode: FC<IRectCodeProps> = (props) => {
     const b = randomNum(0, 255);
     return `rgb(${r},${g},${b})`;
   };
+  
   /**圆 干扰点 */
   const drawArc = (ctx: CanvasRenderingContext2D) => {
     for (let i = 0; i < 10; i++) {

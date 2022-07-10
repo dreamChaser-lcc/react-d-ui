@@ -23,7 +23,7 @@ const babelOptions = {
   presets: ["@babel/preset-env"],
   extensions: [".js", ".jsx", ".ts", ".tsx", ".less"],
   exclude: "**/node_modules/**",
-  babelHelpers:"inline"
+  babelHelpers: "inline",
 };
 // 忽略文件
 const externalConfig = [
@@ -44,8 +44,8 @@ const assetsConfig = {
     },
   ],
 };
-const entry = "src/lib/index.ts";
-const componentsDir = "src/lib";
+const entry = "lib/index.ts";
+const componentsDir = "lib";
 const componentsName = fs.readdirSync(path.resolve(componentsDir));
 const componentsEntry = true
   ? []
@@ -80,7 +80,7 @@ const processLess = function (context) {
   });
 };
 // 入口文件
-const entryFileUrl = "src/lib/index.ts";
+const entryFileUrl = "./lib/index.ts";
 // 组件导出目录
 const libOutputUrl = "./dist/";
 // 类型导出目录
@@ -111,6 +111,24 @@ export default () => {
           },
           external: externalConfig,
           plugins: [...libPlugins],
+        },
+      ];
+    case "dts":
+      return [
+        {
+          input: "./lib/index.ts",
+          output: {
+            preserveModules: true,
+            dir: "./dist/types",
+            format: "es",
+          },
+          external: ["react", "react-dom", "classname"],
+          plugins: [
+            peerDepsExternal(),
+            typescript(),
+            babel(babelOptions),
+            dts()
+          ],
         },
       ];
   }

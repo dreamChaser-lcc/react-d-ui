@@ -1,14 +1,9 @@
 {
   "name": "stars-lib",
-  "version": "1.0.0-alpha0",
+  "version": "0.0.1-alpha6",
+  "author": "lcc",
   "description": "the component library of lcc",
-  "main": "/dist/index.js",
-  "scripts": {
-    "dev": "vite",
-    "test": "echo test",
-    "build:esm": "yarn run clean && cross-env MODE_ENV=esm rollup -c ",
-    "clean": "rimraf ./dist/"
-  },
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/dreamChaser-lcc/react-d-ui.git"
@@ -18,12 +13,25 @@
     "react",
     "typescript"
   ],
+
+  "type": "module",
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+
   "files": [
     "/dist",
     "LICENSE"
   ],
-  "author": "lcc",
-  "license": "ISC",
+
+  "scripts": {
+    "dev": "vite",
+    "test": "echo test",
+    "build:esm": "yarn run clean && cross-env MODE_ENV=esm rollup -c ",
+    "build:dts": "yarn run clean && cross-env MODE_ENV=dts rollup -c ",
+    "clean": "rimraf ./dist/"
+  },
+ 
   "peerDependencies": {
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
@@ -33,7 +41,7 @@
     "react-dom": "^17.0.0",
     "react-is": "^17.0.0"
   },
-  "devDependencies": { "stars-lib": "^1.0.0-alpha0",
+  "devDependencies": {
     "@babel/core": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
     "@babel/preset-react": "^7.18.6",

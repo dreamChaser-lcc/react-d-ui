@@ -8,9 +8,12 @@ import { IMouseInfoRef, ISliderProps, MaskEnum } from "./interface";
 import "./styles/style.less";
 
 const imgSource: string[] = [
-  "https://img1.baidu.com/it/u=3110752325,1740512856&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313",
-  "https://img2.baidu.com/it/u=2159511503,712980543&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
-  "https://img1.baidu.com/it/u=1591125390,164012472&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313",
+  // "https://img1.baidu.com/it/u=3110752325,1740512856&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313",
+  // "https://img2.baidu.com/it/u=2159511503,712980543&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+  "https://img2.baidu.com/it/u=1953318364,412408773&fm=253&fmt=auto&app=138&f=JPEG?w=1213&h=500",
+  "https://img0.baidu.com/it/u=3927348402,831196188&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+  "https://img0.baidu.com/it/u=3715346569,336506100&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+  "https://img2.baidu.com/it/u=976025458,2630339149&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=281",
 ];
 
 /**滑动拼图 */
@@ -126,7 +129,8 @@ const SliderJigsaw: FC<ISliderProps> = (props) => {
     if (typeof onRefresh === "function") onRefresh();
     resetState();
 
-    const randomRange = Math.random() * (imgSource.length - 1);
+    const randomRange = Math.random() * imgSource.length;
+    
     const index = Math.floor(randomRange);
 
     const mainCtx = mainRef.current?.getContext("2d");
