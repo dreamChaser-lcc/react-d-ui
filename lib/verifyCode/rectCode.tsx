@@ -5,9 +5,11 @@ interface IRectCodeProps {
   height: number;
   /**验证码位数 */
   digit: number;
+  /**获取当前验证码 */
+  getCode: (code: string[]) => void;
 }
 const RectCode: FC<IRectCodeProps> = (props) => {
-  const { width, height, digit } = props;
+  const { width, height, digit, getCode } = props;
   const mainRef = useRef<HTMLCanvasElement>(null);
 
   /**随机数 */
@@ -21,7 +23,7 @@ const RectCode: FC<IRectCodeProps> = (props) => {
     const b = randomNum(0, 255);
     return `rgb(${r},${g},${b})`;
   };
-  
+
   /**圆 干扰点 */
   const drawArc = (ctx: CanvasRenderingContext2D) => {
     for (let i = 0; i < 10; i++) {
@@ -84,8 +86,10 @@ const RectCode: FC<IRectCodeProps> = (props) => {
     const codeArr: string[] = new Array(digit).fill(0).map(() => {
       return getRandomCode();
     });
-    // ctx.fillStyle = randomColor();
-    // ctx.fillRect(0, 0, width, height);
+    if (typeof getCode === "function") {
+      getCode(codeArr);
+    }
+
     codeArr.forEach((item) => {
       drawText(ctx, item);
     });

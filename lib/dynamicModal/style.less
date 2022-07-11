@@ -1,0 +1,189 @@
+/*
+* 动态弹出对话框样式
+*/
+#dynamicModal {
+  .ant-modal-operation {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .modal-extra {
+    position: absolute;
+    // left: calc(100vw - 65%);
+    padding-bottom: 0;
+    min-width: 200px;
+    min-height: 150px;
+    max-width: 100vw;
+    .content-extra {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      .title-extra {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #f0f0f0;
+        cursor: move;
+        .modal-oprate {
+          display: flex;
+          align-items: center;
+          button {
+            // background: url(../assets/tool.png) no-repeat;
+            margin-left: 5px;
+            display: block;
+            width: 22px;
+            height: 20px;
+            border: 0;
+            cursor: pointer;
+          }
+          button.min {
+            background-position: -118px 0;
+            &:hover {
+              background-position: -118px -29px;
+            }
+          }
+          button.max {
+            background-position: -60px 0;
+            &:hover {
+              background-position: -60px -29px;
+            }
+          }
+          button.close {
+            background-position: -89px 0;
+            &:hover {
+              background-position: -89px -29px;
+            }
+          }
+        }
+      }
+      .body-extra {
+        height: 100%;
+        overflow: auto;
+      }
+    }
+
+    .resizeT,
+    .resizeB,
+    .resizeL,
+    .resizeR,
+    .resizeLT,
+    .resizeLB,
+    .resizeRT,
+    .resizeRB {
+      position: absolute;
+      opacity: 0;
+    }
+    .resizeT {
+      top: 0;
+      width: 100%;
+      height: 8px;
+      cursor: n-resize;
+    }
+    .resizeB {
+      bottom: 0;
+      width: 100%;
+      height: 8px;
+      cursor: s-resize;
+    }
+    .resizeL {
+      left: 0;
+      height: 100%;
+      width: 8px;
+      cursor: w-resize;
+    }
+    .resizeR {
+      right: 0;
+      height: 100%;
+      width: 8px;
+      cursor: e-resize;
+    }
+    .resizeLT {
+      left: 0;
+      top: 0;
+      width: 8px;
+      height: 8px;
+      cursor: nw-resize;
+    }
+    .resizeLB {
+      left: 0;
+      bottom: 0;
+      width: 8px;
+      height: 8px;
+      cursor: sw-resize;
+    }
+    .resizeRT {
+      right: 0;
+      top: 0;
+      width: 8px;
+      height: 8px;
+      cursor: ne-resize;
+    }
+    .resizeRB {
+      right: 0;
+      bottom: 0;
+      width: 8px;
+      height: 8px;
+      cursor: se-resize;
+    }
+  }
+}
+
+@MAX_Z-INDEX: 999;
+// #dynamicModal {
+//   position: relative;
+
+//   background-color: #ff1;
+//   height: 200px;
+
+//   .toTop,
+//   .toBottom {
+//     z-index: @MAX_Z-INDEX;
+//     height: 10px;
+//     width: 100%;
+//     // background-color: #ff1;
+//     &:hover {
+//       cursor: pointer;
+//     }
+//   }
+//   .toLeft,
+//   .toRight {
+//     z-index: @MAX_Z-INDEX;
+//     height: 100%;
+//     width: 10px;
+//     // background-color: #fc6;
+//   }
+//   .toTop {
+//     position: fixed;
+//     background-color: #fc6;
+//     top: 0;
+//     height: 50px;
+//   }
+
+//   .toLeft {
+//     position: fixed;
+//     left: 0;
+//   }
+//   .toBottom {
+//     position: fixed;
+//     bottom: 0;
+//   }
+
+//   .toRight {
+//     position: fixed;
+//     right: 0;
+//   }
+//   .content {
+//     padding: 10px;
+//   }
+// }

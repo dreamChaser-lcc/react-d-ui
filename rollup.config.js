@@ -39,8 +39,8 @@ const externalConfig = [
 const assetsConfig = {
   targets: [
     {
-      src: "component/assets/*.jpg",
-      dest: "lib/assets",
+      src: "lib/assets/*",
+      dest: "dist/assets",
     },
   ],
 };
@@ -94,6 +94,7 @@ const libPlugins = [
   postcss({
     extract: true,
   }),
+  copyAssets(assetsConfig),
   typescript(),
   babel(babelOptions),
 ];

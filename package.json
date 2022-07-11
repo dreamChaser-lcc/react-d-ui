@@ -1,6 +1,6 @@
 {
   "name": "stars-lib",
-  "version": "0.0.1-alpha6",
+  "version": "0.1.1-alpha",
   "author": "lcc",
   "description": "the component library of lcc",
   "license": "ISC",
@@ -13,17 +13,14 @@
     "react",
     "typescript"
   ],
-
   "type": "module",
   "module": "dist/index.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-
   "files": [
     "/dist",
     "LICENSE"
   ],
-
   "scripts": {
     "dev": "vite",
     "test": "echo test",
@@ -31,12 +28,15 @@
     "build:dts": "yarn run clean && cross-env MODE_ENV=dts rollup -c ",
     "clean": "rimraf ./dist/"
   },
- 
   "peerDependencies": {
+    "antd": "^4.21.6",
+    "classnames": "^2.3.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
   "dependencies": {
+    "antd": "^4.21.6",
+    "classnames": "^2.3.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-is": "^17.0.0"
@@ -50,8 +50,8 @@
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5",
+    "@types/react": "17.x",
+    "@types/react-dom": "17.x",
     "@vitejs/plugin-react": "^1.3.0",
     "cross-env": "^7.0.3",
     "less": "^4.1.3",
