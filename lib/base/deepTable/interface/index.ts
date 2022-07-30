@@ -20,6 +20,8 @@ interface DeepTableActionRef {
 }
 type DeepTableActionType = DeepTableActionRef | undefined;
 export interface IDeepTableProps extends TableProps<any> {
+  /**容器id */
+  containerId?:string;
   /**查询配置 */
   formItems?: ProFormItemProps[];
   /**列配置 */

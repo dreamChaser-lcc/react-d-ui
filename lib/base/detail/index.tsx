@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react';
+import  React,{ FC, useRef, useState } from 'react';
 // 组件
 import { Button, PageHeader, Space } from 'antd';
 import DeepForm from '../deepForm';
@@ -10,13 +10,15 @@ import { useFormatItems } from './hooks/useFomatItems';
 import { FormActionType } from '../deepForm/ProForm/interface';
 import { IDetailProps } from './interface';
 import { useAutoHight } from './hooks/useAutoHight';
-import React from 'react';
+import classNames from 'classnames';
 import { SUCCESS_STATUS_CODE } from '../../../lib/constants/common';
 
 const Detail: FC<IDetailProps> = (props) => {
   const {
     title,
-    actionRef,
+    actionRef, 
+    customClass,
+    customStyle,
     bindId,
     defaultLineNumber,
     formItems,
@@ -111,13 +113,15 @@ const Detail: FC<IDetailProps> = (props) => {
       },
     };
   }
+  const className= classNames("detail-wrap",customClass)
+     
   if (!visible) return null;
   return (
     <DetailContext.Provider value={{ detailData: detailData }}>
       <div
-        className="detail-wrap"
+        className={className}
         ref={detailFormRef}
-        style={{ height: autoHight }}
+        style={{ height: autoHight,...customStyle }}
       >
         <PageHeader
           onBack={handleBack}

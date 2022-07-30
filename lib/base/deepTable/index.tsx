@@ -1,4 +1,4 @@
-import React,{ FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 // 组件
 import { Table } from 'antd';
 import HeadToolBar from './headToolBar';
@@ -15,6 +15,7 @@ import { DEEP_TABLE_CLASS_NAME } from '../../../lib/constants/common';
 
 const DeepTable: FC<IDeepTableProps> = (props) => {
   const {
+    containerId,
     defaultHight,
     actionRef,
     rowKey,
@@ -22,6 +23,7 @@ const DeepTable: FC<IDeepTableProps> = (props) => {
     formItems,
     columns,
     dataSource,
+    pagination,
     ...resProps
   } = props;
   const [tableHight, setTableHight] = useState<number | string>();
@@ -79,6 +81,7 @@ const DeepTable: FC<IDeepTableProps> = (props) => {
   );
   return (
     <div
+      id={containerId}
       ref={deepTableRef}
       className={wrapClass}
     >
@@ -106,6 +109,7 @@ const DeepTable: FC<IDeepTableProps> = (props) => {
           total,
           showSizeChanger: true,
           showQuickJumper: true,
+          ...pagination
         }}
         scroll={{ y: defaultHight || tableHight }}
         columns={newColumns}

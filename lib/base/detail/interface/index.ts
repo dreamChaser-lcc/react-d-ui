@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import { CSSProperties, MutableRefObject } from "react";
 import { ProFormItemProps } from "lib/base/deepForm/ProForm/interface";
 
 export enum DetailOperationEnum {
@@ -22,6 +22,10 @@ export interface IDetailProps {
   title?: string;
   bindId?: string;
   actionRef?: MutableRefObject<DetailActionType>;
+  /**自定义类名 */
+  customClass?: string;
+  /**自定义样式 */
+  customStyle?: CSSProperties;
   /**默认每行Field个数 */
   defaultLineNumber?: number;
   /**field配置 */
