@@ -106,7 +106,7 @@ export default () => {
         {
           input: entryFileUrl,
           output: {
-            preserveModules: true,
+            // preserveModules: true,
             dir: libOutputUrl,
             format: "es",
           },

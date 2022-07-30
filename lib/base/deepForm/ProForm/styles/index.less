@@ -1,0 +1,26 @@
+@TIPS_BACKGROUND: #ecf0f1;
+/**field提示*/
+.append-tips:hover {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    top: 30px;
+    left: 15px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent @TIPS_BACKGROUND;
+  }
+  &::after {
+    content: attr(data-tips);
+    position: absolute;
+    z-index: 10;
+    bottom: -42px;
+    left: 10px;
+    background: @TIPS_BACKGROUND;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #e8e9e9;
+  }
+}

@@ -1,12 +1,15 @@
 import { Button } from "antd";
 import React, { useState } from "react";
-// import { VerifyCode, DynamicModal } from "../../lib";
+import { VerifyCode,  } from "../../lib";
+import Detail from "../detail";
+import Table from "../table";
+
 
 // import { VerifyCode } from "../../dist";
-import { VerifyCode ,DynamicModal} from "../../dist";
+// import { VerifyCode ,DynamicModal} from "../../dist";
 
 // import { VerifyCode } from "@/../dist/";
-// import "@/../dist/index.css";
+import "@/../dist/index.css";
 
 // npm线上包
 // import { VerifyCode } from "stars-lib";
@@ -24,7 +27,7 @@ function App() {
     <>
       {/* <VerifyCode />
       <VerifyCode.RectCode /> */}
-      <Button type="primary" onClick={open}>
+      {/* <Button type="primary" onClick={open}>
         打开弹窗
       </Button>
       <DynamicModal
@@ -32,7 +35,9 @@ function App() {
         onCancel={close}
         title={"自定义头部"}
         bodyExtraClass="body-extra"
-      />
+      /> */}
+      {/* <Table></Table> */}
+      <Detail></Detail>
     </>
   );
 }
