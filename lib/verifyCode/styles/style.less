@@ -1,14 +1,21 @@
 /*
 * 拼图
 */
-.jigsaw {
-  position: absolute;
-  top: 0;
-  cursor: grab;
-  &:active {
-    cursor: grabbing;
+.jigsaw-wrap {
+  // 阻止移动端默认滑动手势行为
+  touch-action: none;
+
+  .jigsaw {
+    position: absolute;
+    top: 0;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 }
+
 /*
 *刷新按钮
 */

@@ -157,6 +157,18 @@ const SliderJigsaw: FC<ISliderProps> = (props) => {
     setMouseGap(0);
   };
 
+  const handleTouchStart = (
+    e: React.TouchEvent<HTMLDivElement | HTMLCanvasElement>,
+  ) => {
+    setMaskClass(MaskEnum.active);
+    const originX = e.changedTouches[0].clientX;
+    mouseRef.current = Object.assign(mouseRef.current, {
+      isDownRef: true,
+      originX,
+    });
+    setMouseGap(0);
+  };
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (!mouseRef.current.isDownRef) return false;
     const curX = e.clientX;
@@ -164,9 +176,18 @@ const SliderJigsaw: FC<ISliderProps> = (props) => {
     if (gap < 0 || gap > width - 38) return false;
     setMouseGap(gap);
   };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!mouseRef.current.isDownRef) return false;
+    const curX = e.changedTouches[0].clientX;
+    const gap = curX - mouseRef.current.originX;
+    if (gap < 0 || gap > width - 38) return false;
+    setMouseGap(gap);
+  };
+
   /**松开 */
   const handleMouseUp = (
-    e: React.MouseEvent<HTMLDivElement | HTMLCanvasElement, MouseEvent>
+    e: React.MouseEvent<HTMLDivElement | HTMLCanvasElement, MouseEvent> | { clientX: number },
   ) => {
     if (!mouseRef.current.isDownRef) return false;
     mouseRef.current.isDownRef = false;
@@ -189,12 +210,19 @@ const SliderJigsaw: FC<ISliderProps> = (props) => {
     }
   };
 
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    const temp = { clientX: e.changedTouches[0].clientX };
+    handleMouseUp(temp);
+  };
+
   return (
-    <div>
+    <div className="jigsaw-wrap">
       <div
         style={{ position: "relative", width }}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
+        onTouchEnd={handleTouchEnd}
+        onTouchMove={handleTouchMove}
       >
         <span className="reload-icon" title="刷新" onClick={reload}>
           ↻
@@ -207,6 +235,7 @@ const SliderJigsaw: FC<ISliderProps> = (props) => {
           className="jigsaw"
           style={{ left: mouseGap }}
           onMouseDown={handleMouseDown}
+          onTouchStart={handleTouchStart}
         />
         <div className="slider-track" style={{ width }}>
           <div className={maskClass} style={{ width: mouseGap + 35 }}>
@@ -214,6 +243,7 @@ const SliderJigsaw: FC<ISliderProps> = (props) => {
               className="slide-icon"
               style={{ left: mouseGap }}
               onMouseDown={handleMouseDown}
+              onTouchStart={handleTouchStart}
             >
               →
             </div>
