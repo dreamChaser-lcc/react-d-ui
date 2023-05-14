@@ -53,9 +53,12 @@ state:
 - beta 公测版本
 - rc (release candidate) 候选发布版本(预发布版本)
 
-| 命令 | 作用 |
-| ---- | ---- |
+| 命令                              | 作用                                                          |
+| --------------------------------- | ------------------------------------------------------------- |
+| npm unpublish 包名@版本号 --force | 强制删除已发布版本 <br>npm unpublish test@1.0.0-alpha         |
+| npm deprecate 包名@版本号 描述    | 强制删除已发布版本 <br> npm deprecate test@1.0.1 '该版本弃用' |
 
-|npm unpublish 包名@版本号 --force | 强制删除已发布版本 <br>npm unpublish test@1.0.0-alpha|
+## 文档地址
 
-|npm deprecate 包名@版本号 描述 | 强制删除已发布版本 <br> npm deprecate test@1.0.1 '该版本弃用'|
+- [npm 地址](https://www.npmjs.com/package/stars-lib?activeTab=versions)
+- [组件库文档](http://licc.cloud/stars-lib-docs/)
